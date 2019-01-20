@@ -16,5 +16,50 @@ public class Entreprise {
 		this.listeChaineProduction = new ArrayList<ChaineProduction> ();
 		this.listePersonnel = new ArrayList<Personnel> ();
 	}
+	
+	public void ajouterElementDansEntreprise(Element elem) {
+		this.listeElements.add(elem);
+	}
+	public void ajouterAchatDansEntreprise(Achat achat) {
+		this.listeAchats.add(achat);
+	}
+	public void ajouterStockageDansEntreprise(Stockage stockage) {
+		this.listeStockages.add(stockage);
+	}
+	public void ajouterChaineProductionDansEntreprise(ChaineProduction chaineproduction) {
+		this.listeChaineProduction.add(chaineproduction);
+	}
+	public void ajouterPersonnelDansEntrepise(Personnel personnel) {
+		this.listePersonnel.add(personnel);
+	}
+	
+	public void retirerElementDansEntreprise(Element elem) {
+		this.listeElements.remove(elem);
+	}
+	public void retirerAchatDansEntreprise(Achat achat) {
+		this.listeAchats.remove(achat);
+	}
+	public void retirerStockageDansEntreprise(Stockage stockage) {
+		this.listeStockages.remove(stockage);
+	}
+	public void retirerChaineProductionDansEntreprise(ChaineProduction chaineproduction) {
+		this.listeChaineProduction.remove(chaineproduction);
+	}
+	public void retirerPersonnelDansEntrepise(Personnel personnel) {
+		this.listePersonnel.remove(personnel);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }

@@ -9,7 +9,7 @@ public class Personnel {
 	private String adresse;
 	private String email;
 	private String telephone;
-	private ArrayList<ChaineProduction> qualification;
+	private ArrayList<ChaineProduction> listequalifications;
 	public Personnel(int codePersonnel, String nom, String prenom, String adresse, String email, String telephone) {
 		this.codePersonnel = codePersonnel;
 		this.nom = nom;
@@ -17,8 +17,16 @@ public class Personnel {
 		this.adresse = adresse;
 		this.email = email;
 		this.telephone = telephone;
-		this.qualification = new ArrayList<ChaineProduction> ();
+		this.listequalifications = new ArrayList<ChaineProduction> ();
 	}
+	
+	public void ajouterQualificationPourPersonnel(ChaineProduction qualification) {
+		this.listequalifications.add(qualification);
+	}
+	public void retirerQualificationPourPersonnel(ChaineProduction qualification) {
+		this.listequalifications.remove(qualification);
+	}
+	
 	
 	
 

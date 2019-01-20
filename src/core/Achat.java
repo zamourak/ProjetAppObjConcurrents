@@ -11,6 +11,7 @@ public class Achat {
 	private Calendar dateAchat;
 	private Calendar dateLivraisonPrevu;
 	private Calendar dateLivraisonEffective;
+	
 	public Achat(int codeAchat, float prixTotal,
 			Calendar dateLivraisonPrevu) {
 		this.codeAchat = codeAchat;
@@ -19,5 +20,19 @@ public class Achat {
 		this.dateAchat = new GregorianCalendar();
 		this.dateLivraisonPrevu = dateLivraisonPrevu;
 		this.dateLivraisonEffective = null;
-	}	
+	}
+	
+	public void ajouterElementPourAchat(Element elem, int quantitee) {
+		this.elem.put(elem, quantitee);
+	}
+	public void EnleverElementPourAchat(Element elem) {
+		this.elem.remove(elem);
+	}
+	public void changerquantiteePourAchat(Element elem, int quantitee) {
+		this.ajouterElementPourAchat(elem, quantitee);
+	}
+	
+	
+	
+	
 }
