@@ -1,5 +1,10 @@
 package core;
 
-public class MP extends Element{
+public class MatieresPremieres extends Element{
+
+	public MatieresPremieres(int codeElement, int nom, String unitee, float prixAchat) {
+		super(codeElement, nom, unitee, prixAchat);
+		// TODO Auto-generated constructor stub
+	}
 
 }

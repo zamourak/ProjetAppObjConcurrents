@@ -10,4 +10,14 @@ public class Achat {
 	private Calendar dateAchat;
 	private Calendar dateLivraisonPrevu;
 	private Calendar dateLivraisonEffective;
+	public Achat(int codeAchat, float prixTotal, Calendar dateAchat,
+			Calendar dateLivraisonPrevu, Calendar dateLivraisonEffective) {
+		this.codeAchat = codeAchat;
+		this.prixTotal = prixTotal;
+		this.elem = new HashMap<Element, Integer> ();
+		this.dateAchat = dateAchat;
+		this.dateLivraisonPrevu = dateLivraisonPrevu;
+		this.dateLivraisonEffective = dateLivraisonEffective;
+	}
+
 }
