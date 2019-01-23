@@ -5,14 +5,14 @@ import java.util.GregorianCalendar;
 import java.util.HashMap;
 
 public class Achat {
-	private int codeAchat;
+	private String codeAchat;
 	private float prixTotal;
 	private HashMap<Element, Integer> elem;
 	private Calendar dateAchat;
 	private Calendar dateLivraisonPrevu;
 	private Calendar dateLivraisonEffective;
 	
-	public Achat(int codeAchat, float prixTotal,
+	public Achat(String codeAchat, float prixTotal,
 			Calendar dateLivraisonPrevu) {
 		this.codeAchat = codeAchat;
 		this.prixTotal = prixTotal;

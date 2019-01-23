@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class ChaineProduction {
-	private int codeChaineProduction;
+	private String codeChaineProduction;
 	private String nom;
 	private int niveauActivitee;
 	private int temps;
@@ -14,7 +14,7 @@ public class ChaineProduction {
 	
 	private ArrayList<Production> listeproduction;
 	
-	public ChaineProduction(int codeChaineProduction, String nom, int niveauActivitee, int temps) {
+	public ChaineProduction(String codeChaineProduction, String nom, int niveauActivitee, int temps) {
 		this.codeChaineProduction = codeChaineProduction;
 		this.nom = nom;
 		this.niveauActivitee = niveauActivitee;
