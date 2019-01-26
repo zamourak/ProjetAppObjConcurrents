@@ -2,6 +2,7 @@ package core;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 
 public class ChaineProduction {
 	private String codeChaineProduction;
@@ -9,8 +10,8 @@ public class ChaineProduction {
 	private int niveauActivitee;
 	private int temps;
 	
-	private HashMap<Element, Integer> entree;
-	private HashMap<ProduitsFinis, Integer> sortie;
+	private HashMap<Element, Float> entree;
+	private HashMap<Element, Float> sortie;
 	
 	private ArrayList<Production> listeproduction;
 	
@@ -19,15 +20,18 @@ public class ChaineProduction {
 		this.nom = nom;
 		this.niveauActivitee = niveauActivitee;
 		this.temps = temps;
-		this.entree = new HashMap<Element, Integer> ();
-		this.sortie = new HashMap<ProduitsFinis, Integer> ();
+		this.entree = new HashMap<Element, Float> ();
+		this.sortie = new HashMap<Element, Float> ();
 		this.listeproduction = new ArrayList<Production>();
 	}
+	public ChaineProduction(String codeChaineProduction, String nom, int temps) {
+		this(codeChaineProduction, nom, 0, temps);
+	}
 	
-	public void ajouterElementPourDictionnaireDeProductionEnEntree(Element elem, int quantitee) {
+	public void ajouterElementPourDictionnaireDeProductionEnEntree(Element elem, float quantitee) {
 		this.entree.put(elem, quantitee);
 	}
-	public void ajouterElementPourDictionnaireDeProductionEnSortie(ProduitsFinis elem, int quantitee) {
+	public void ajouterElementPourDictionnaireDeProductionEnSortie(Element elem, float quantitee) {
 		this.sortie.put(elem, quantitee);
 	}
 	public void retirerElementPourDictionnaireDeProductionEnEntree(Element elem) {
@@ -36,11 +40,11 @@ public class ChaineProduction {
 	public void retirerElementPourDictionnaireDeProductionEnSortie(ProduitsFinis elem) {
 		this.entree.remove(elem);
 	}
-	public void modifierElementPourDictionnaireDeProductionEnEntree(Element elem, int quantitee) {
+	public void modifierElementPourDictionnaireDeProductionEnEntree(Element elem, float quantitee) {
 		this.ajouterElementPourDictionnaireDeProductionEnEntree(elem, quantitee);
 	}
-	public void modifierElementPourDictionnaireDeProductionEnSorti(Element elem, int quantitee) {
-		this.ajouterElementPourDictionnaireDeProductionEnEntree(elem, quantitee);
+	public void modifierElementPourDictionnaireDeProductionEnSortie(Element elem, float quantitee) {
+		this.ajouterElementPourDictionnaireDeProductionEnSortie(elem, quantitee);
 	}
 	
 	public void ajouterProduction() {
@@ -51,7 +55,27 @@ public class ChaineProduction {
 	}
 	
 	
-	
+	public String toString() {
+		String src = this.codeChaineProduction + " - " + this.nom + " - " + this.temps;
+		src += "\nEntrée :\n";
+		Iterator it = this.entree.keySet().iterator();
+		Element elem;
+		Float quantitee;
+		while(it.hasNext()) {
+			elem = (Element) it.next(); 
+			quantitee = this.entree.get(elem); 
+			src+="Element : " + elem + " quantitee en entree :" +quantitee + "\n";
+		}
+		src += "\nSortie :\n";
+		it = this.sortie.keySet().iterator();
+		while(it.hasNext()) {
+			elem = (Element) it.next(); 
+			quantitee = this.sortie.get(elem);
+			src+="Element : " + elem + " quantitee en sortie :" +quantitee + "\n";
+		}
+		return src;
+		
+	}
 	
 	
 	

@@ -19,7 +19,7 @@ public class FichierCSVStockage extends FichierCSV{
 	/**
 	 * Charge les données sur les Stockage écrites dans le fichier Stockage
 	 */
-	public void ChargerStockage() {
+	public void ChargerChaineDeProduction() {
 		ArrayList<String> elements = this.Lecture();
 		for (String src : elements) {
 			String[] attribut = src.split(",");
@@ -34,8 +34,7 @@ public class FichierCSVStockage extends FichierCSV{
 	private void ChargerContenu(String[] ligne, Stockage stockage) {
 		for (int i = 2; i<ligne.length; i+=2) {
 			String codeElem = ligne[i].substring(ligne[i].indexOf('(')+1);
-			int quantitee = Integer.parseInt(ligne[i+1].substring(0, ligne[i+1].indexOf(')')));
-			System.out.println(codeElem + " " + quantitee);
+			float quantitee = Float.parseFloat(ligne[i+1].substring(0, ligne[i+1].indexOf(')')));
 			Element elem = Entreprise.enteprise.rechercherElement(codeElem);
 			stockage.ajouterElementPourStockage(elem, quantitee);
 		}
