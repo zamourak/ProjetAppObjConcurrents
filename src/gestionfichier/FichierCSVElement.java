@@ -22,13 +22,7 @@ public class FichierCSVElement extends FichierCSV{
 	public void ChargerElement() {
 		ArrayList<String> elements = this.Lecture();
 		for (String src : elements) {
-			System.out.println(src);
 			String[] attribut = src.split(",");
-			System.out.println("-----");
-			for (String i : attribut) {
-				System.out.println(i + "|");
-			}
-			System.out.println(attribut);
 			String code = attribut[0];
 			String nom = attribut[1];
 			String unite = attribut[2];

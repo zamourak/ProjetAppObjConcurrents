@@ -63,6 +63,14 @@ public class Entreprise {
 		}
 		return elem;
 	}
-	
 
+	public ArrayList<Element> getListeElements() {
+		return listeElements;
+	}
+
+	public ArrayList<ChaineProduction> getListeChaineProduction() {
+		return listeChaineProduction;
+	}
+	
+	
 }
