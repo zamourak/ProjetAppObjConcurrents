@@ -1,6 +1,7 @@
 package core;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Entreprise {
 	private ArrayList<Achat> listeAchats;
@@ -72,5 +73,18 @@ public class Entreprise {
 		return listeChaineProduction;
 	}
 	
+	public HashMap<Element, Float> getEtatDuStockage(Stockage stockage) {
+		return stockage.getStockage();
+	}
 	
+	public ArrayList<ChaineProduction> chercherChaineDeProduction(String code, String nom, int temps) {
+		ArrayList<ChaineProduction> TempCP = new ArrayList<ChaineProduction>();
+		for(ChaineProduction cp : this.listeChaineProduction) {
+			if(cp.isChaineDeProduction(code, nom, temps)) {
+				TempCP.add(cp);
+			}
+		}
+		return TempCP;
+	}
+
 }

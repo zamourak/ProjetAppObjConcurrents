@@ -54,6 +54,12 @@ public class ChaineProduction {
 		this.listeproduction.remove(production);
 	}
 	
+	public boolean isChaineDeProduction(String code, String nom, int temps) {
+		if(this.codeChaineProduction.equals(code) && this.nom.equals(nom) && this.temps == temps) {
+			return true;
+		}		
+		return false;
+	}
 	
 	public String toString() {
 		String src = this.codeChaineProduction + " - " + this.nom + " - " + this.temps;

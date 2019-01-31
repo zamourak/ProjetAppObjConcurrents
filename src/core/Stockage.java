@@ -47,6 +47,8 @@ public class Stockage {
 		return src;
 	}
 	
-	
+	public HashMap<Element, Float> getStockage(){
+		return this.stock;
+	}
 	
 }
