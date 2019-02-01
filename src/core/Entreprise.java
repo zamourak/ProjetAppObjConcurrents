@@ -73,10 +73,38 @@ public class Entreprise {
 		return listeChaineProduction;
 	}
 	
-	public HashMap<Element, Float> getEtatDuStockage(Stockage stockage) {
-		return stockage.getStockage();
+	public HashMap<Element, Float> getEtatsDesStocks() {
+		HashMap<Element, Float> stock = new HashMap<Element, Float> ();
+		HashMap<Element, Float> stockTemp;		
+		for(Element e : this.listeElements) {
+			stock.put(e, 0f);			
+		}
+		
+		for(Stockage s : this.listeStockages) {
+			stockTemp = s.getStockage();
+			for(Element e : stockTemp.keySet()) {
+				stock.put(e, stockTemp.get(e) + stock.get(e));
+			}		
+		}
+		return stock;
 	}
-	
+	public HashMap<Element, Float> getEtatsDesStocks(ArrayList<Element> le) {
+		HashMap<Element, Float> stock = new HashMap<Element, Float> ();
+		HashMap<Element, Float> stockTemp;		
+		for(Element e : le) {
+			stock.put(e, 0f);			
+		}
+		
+		for(Stockage s : this.listeStockages) {
+			stockTemp = s.getStockage();
+			for(Element e : stockTemp.keySet()) {
+				if(stock.containsKey(e)) {
+					stock.put(e, stockTemp.get(e) + stock.get(e));
+				}
+			}		
+		}
+		return stock;
+	}	
 	public ArrayList<ChaineProduction> chercherChaineDeProduction(String code, String nom, int temps) {
 		ArrayList<ChaineProduction> TempCP = new ArrayList<ChaineProduction>();
 		for(ChaineProduction cp : this.listeChaineProduction) {
@@ -86,5 +114,5 @@ public class Entreprise {
 		}
 		return TempCP;
 	}
-
+	
 }

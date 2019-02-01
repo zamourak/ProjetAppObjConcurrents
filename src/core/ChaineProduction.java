@@ -1,6 +1,8 @@
 package core;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Iterator;
 
@@ -57,10 +59,22 @@ public class ChaineProduction {
 	public boolean isChaineDeProduction(String code, String nom, int temps) {
 		if(this.codeChaineProduction.equals(code) && this.nom.equals(nom) && this.temps == temps) {
 			return true;
-		}		
+		}
+		else if(this.codeChaineProduction.equals(code) && this.nom.equals(nom) && this.temps == 0) {
+			return true;
+		}
+		else if(this.codeChaineProduction.equals(code) && this.nom == null && this.temps == temps) {
+			return true;
+		}
+		else if(this.codeChaineProduction == null && this.nom.equals(nom) && this.temps == temps) {
+			return true;
+		}
+		else if(this.codeChaineProduction.equals(code) && this.nom == null && this.temps == 0) {
+			return true;
+		}
 		return false;
 	}
-	
+
 	public String toString() {
 		String src = this.codeChaineProduction + " - " + this.nom + " - " + this.temps;
 		src += "\nEntrée :\n";
@@ -82,7 +96,49 @@ public class ChaineProduction {
 		return src;
 		
 	}
+	private void effacerPrevision() {
+		for(Production p : this.listeproduction) {
+			if(p.getDateProduction().after(new GregorianCalendar())) {
+				this.listeproduction.remove(p);
+			}
+		}
+	}
+	/**
+	 * 
+	 */
+	public HashMap<Element, Float> PrevisionProduction(){
+		effacerPrevision();
+		HashMap<Element, Float> stockTemp;
+		ArrayList <Element> elementsTemp = this.toArrayListElemEntree();
+		stockTemp = Entreprise.enteprise.getEtatsDesStocks(elementsTemp);
+		for(Element e : stockTemp.keySet()) {
+			if(stockTemp.get(e) - this.entree.get(e) < 0) {
+				break;
+			}
+			else {
+				stockTemp.put(e, stockTemp.get(e) - this.entree.get(e));
+				Calendar cal = new GregorianCalendar();
+				cal.add(Calendar.MINUTE, this.temps);
+				this.listeproduction.add(new Production(this.niveauActivitee, cal));
+			}
+		}
+		return stockTemp;
+	}
 	
-	
-	
+	private ArrayList<Element> toArrayListElemEntree(){
+		ArrayList <Element> elements= new ArrayList <Element> ();
+		for(Element e : this.entree.keySet()) {
+			elements.add(e);
+		}
+		return elements;
+	}
+	public Calendar getFinDeProduction() {
+		Calendar cTemp = new GregorianCalendar();
+		for(Production p : this.listeproduction) {
+			if(p.getDateProduction().after(cTemp)) {
+				cTemp = p.getDateProduction();
+			}
+		}
+		return cTemp;
+	}
 }

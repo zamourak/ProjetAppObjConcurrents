@@ -10,9 +10,14 @@ public class Production {
 		this.niveauProduction = niveauProduction;
 		this.dateProduction = dateProduction;
 	}
+	
 	public Production(int niveauProduction) {
 		this(niveauProduction, new GregorianCalendar());
 	}
-	
-	
+
+
+
+	public Calendar getDateProduction() {
+		return dateProduction;
+	}
 }
