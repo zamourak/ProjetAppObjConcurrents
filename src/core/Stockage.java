@@ -1,8 +1,5 @@
 package core;
 
-import java.util.HashMap;
-import java.util.Iterator;
-
 public class Stockage {
 	private float quantite;
 	private String unitee;

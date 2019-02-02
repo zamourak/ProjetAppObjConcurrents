@@ -42,7 +42,7 @@ public class FichierCSVChaineDeProduction extends FichierCSV{
 		return index;
 	}
 	
-	public void ChargerChaineDeProduction() {
+	public void Charger() {
 		ArrayList<String> elements = this.Lecture();
 		int SortieCodeIndex = this.chercherIndexSortieElements(elements);
 		for (String src : elements) {

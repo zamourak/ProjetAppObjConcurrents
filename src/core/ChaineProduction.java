@@ -77,22 +77,15 @@ public class ChaineProduction {
 
 	public String toString() {
 		String src = this.codeChaineProduction + " - " + this.nom + " - " + this.temps;
-		src += "\nEntrÃ©e :\n";
-		Iterator it = this.entree.keySet().iterator();
-		Element elem;
-		Float quantitee;
-		while(it.hasNext()) {
-			elem = (Element) it.next(); 
-			quantitee = this.entree.get(elem); 
-			src+="Element : " + elem + " quantitee en entree :" +quantitee + "\n";
+		src += "\nElement en Entrée :\n";
+		for (Element e : this.entree.keySet()) {
+			src += e + " " + this.entree.get(e);
 		}
-		src += "\nSortie :\n";
-		it = this.sortie.keySet().iterator();
-		while(it.hasNext()) {
-			elem = (Element) it.next(); 
-			quantitee = this.sortie.get(elem);
-			src+="Element : " + elem + " quantitee en sortie :" +quantitee + "\n";
+		src += "\nElement en Sortie :\n";
+		for(Element e : this.sortie.keySet()) {
+			src += e + " " + this.sortie.get(e);
 		}
+		src += "\n\n\n";
 		return src;
 		
 	}

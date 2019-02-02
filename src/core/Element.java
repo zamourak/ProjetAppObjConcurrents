@@ -3,7 +3,6 @@ package core;
 public abstract class Element {
 	private String codeElement;
 	private String nom;
-	private String unitee;
 	private Stockage stock;
 	private float prixAchat;
 	private float prixVente;
@@ -30,8 +29,8 @@ public abstract class Element {
 	}
 	
 	public String toString() {
-		return this.codeElement + " - " + this.nom + "\nmesure : " +this.unitee+ "\nprix d'achat : " + this.prixAchat
-				+ "\nprix de vente :" +this.prixVente; 
+		return this.codeElement + " - " + this.nom + "\nprix d'achat : " + this.prixAchat
+				+ "\nprix de vente :" +this.prixVente + "\n" + this.stock + "\n" ; 
 	}
 	
 	

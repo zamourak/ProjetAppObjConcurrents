@@ -2,6 +2,7 @@ package core;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 
 public class Entreprise {
 	private ArrayList<Achat> listeAchats;
@@ -48,13 +49,15 @@ public class Entreprise {
 	}	
 
 	public Element rechercherElement(String code) {
-		Element elem = null;
-		for (Element element : this.listeElements) {
-			if(element.CodeCorrect(code)) {
-				elem = element;
+		Iterator it = this.listeElements.iterator();
+		Element elem;
+		while(it.hasNext()) {
+			elem = (Element) it.next();
+			if (elem.CodeCorrect(code));{
+				return elem;
 			}
 		}
-		return elem;
+		return null;
 	}
 
 	public ArrayList<ChaineProduction> getListeChaineProduction() {

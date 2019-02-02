@@ -19,7 +19,7 @@ public class FichierCSVElement extends FichierCSV{
 	/**
 	 * Charge les données sur les Eléments écrites dans le fichier Element
 	 */
-	public void ChargerElement() {
+	public void Charger() {
 		ArrayList<String> elements = this.Lecture();
 		for (String src : elements) {
 			String[] attribut = src.split(",");
@@ -29,17 +29,17 @@ public class FichierCSVElement extends FichierCSV{
 			String unite = attribut[3];
 			float achat;
 			float vente;
-			if(attribut[3].equals("NA")) {
+			if(attribut[4].equals("NA")) {
 				achat=-1;
 			}else {
-				achat = Float.parseFloat(attribut[3]);
+				achat = Float.parseFloat(attribut[4]);
 			}
-			if(attribut[4].equals("NA")) {
+			if(attribut[5].equals("NA")) {
 				vente=-1;
 			}else {
-				vente = Float.parseFloat(attribut[4]);
+				vente = Float.parseFloat(attribut[5]);
 			}
-			if (attribut[5].equals("PF")) {
+			if (attribut[6].equals("PF")) {
 				Entreprise.enteprise.ajouterElementDansEntreprise(new MatieresPremieres(code, nom, unite, stock, achat, vente));
 			}else {
 				Entreprise.enteprise.ajouterElementDansEntreprise(new MatieresPremieres(code, nom, unite, stock, achat, vente));

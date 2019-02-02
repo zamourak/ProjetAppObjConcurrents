@@ -27,6 +27,8 @@ public abstract class FichierCSV{
 		return ligne;
 	}
 	
+	public abstract void Charger();
+	
 	public abstract String[][] Ecriture();
 
 	
