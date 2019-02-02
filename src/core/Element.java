@@ -4,12 +4,12 @@ public abstract class Element {
 	private String codeElement;
 	private String nom;
 	private Stockage stock;
-	private float prixAchat;
-	private float prixVente;
-	public Element(String codeElement, String nom, String unitee, float prixAchat, float prixVente) {
+	private double prixAchat;
+	private double prixVente;
+	public Element(String codeElement, String nom, String unitee, double prixAchat, double prixVente) {
 		this(codeElement, nom, unitee, 0, prixAchat, prixVente);
 	}
-	public Element(String codeElement, String nom, String unitee, float quantite, float prixAchat, float prixVente) {
+	public Element(String codeElement, String nom, String unitee, double quantite, double prixAchat, double prixVente) {
 		this.codeElement = codeElement;
 		this.nom = nom;
 		this.stock = new Stockage(quantite, unitee);

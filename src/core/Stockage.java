@@ -1,19 +1,24 @@
 package core;
 
 public class Stockage {
-	private float quantite;
+	private double quantite;
 	private String unitee;
 	
 	public Stockage(String unitee) {
-		this(0f, unitee);		
+		this(0, unitee);		
 	}
-	
-	public Stockage(float stock, String unitee) {
-		this.quantite = stock;
+	public Stockage(double quantite, String unitee) {
+		this.quantite = quantite;
 		this.unitee = unitee;
 	}
-	public float getStock() {
+	public double getStock() {
 		return this.quantite;
+	}
+	public void retirer(double quantitee) {
+		this.quantite-=quantitee;
+	}
+	public void ajouter(double quantitee) {
+		this.quantite+=quantitee;
 	}
 	
 

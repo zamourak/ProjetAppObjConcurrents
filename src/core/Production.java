@@ -15,7 +15,9 @@ public class Production {
 		this(niveauProduction, new GregorianCalendar());
 	}
 
-
+	public int getNiveauProduction() {
+		return this.niveauProduction;
+	}
 
 	public Calendar getDateProduction() {
 		return dateProduction;

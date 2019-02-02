@@ -1,6 +1,7 @@
 package core;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Iterator;
 
@@ -49,12 +50,9 @@ public class Entreprise {
 	}	
 
 	public Element rechercherElement(String code) {
-		Iterator it = this.listeElements.iterator();
-		Element elem;
-		while(it.hasNext()) {
-			elem = (Element) it.next();
-			if (elem.CodeCorrect(code));{
-				return elem;
+		for(Element e : this.listeElements) {
+			if(e.CodeCorrect(code)) {
+				return e;
 			}
 		}
 		return null;
@@ -77,5 +75,64 @@ public class Entreprise {
 		}
 		return TempCP;
 	}
+	
+	public ArrayList<ChaineProduction> chainesProductionActive(){
+		ArrayList<ChaineProduction> chainesProductionActive = new ArrayList<ChaineProduction>();
+		for(ChaineProduction cp: this.listeChaineProduction) {
+			if (cp.peutProduire()) {
+				chainesProductionActive.add(cp);
+			}
+		}
+		return chainesProductionActive;
+	}
+	public ArrayList<ChaineProduction> chainesProductionActive(ArrayList<ChaineProduction> chaineproduction){
+		ArrayList<ChaineProduction> chainesProductionActive = new ArrayList<ChaineProduction>();
+		for(ChaineProduction cp: chaineproduction) {
+			if (cp.peutProduire()) {
+				chainesProductionActive.add(cp);
+			}
+		}
+		return chainesProductionActive;
+	}
+	
+	public void Prevision() {
+		ArrayList<ChaineProduction> chainesProductionActive = this.chainesProductionActive();
+		while(chainesProductionActive.size()>0) {
+			Iterator it = chainesProductionActive.iterator();
+			ChaineProduction cpfirst = (ChaineProduction)it.next();
+			Calendar calmin = cpfirst.getFinDeProduction();
+			calmin.add(Calendar.MINUTE, cpfirst.getTemps());
+			while(it.hasNext()) {
+				ChaineProduction cp = (ChaineProduction) it.next();
+				Calendar cal = cp.getFinDeProduction();
+				cal.add(Calendar.MINUTE, cp.getTemps());
+				if(calmin.after(cal)) {
+					calmin=cal;
+					cpfirst=cp;
+				}
+			}
+			cpfirst.produire();
+			chainesProductionActive=this.chainesProductionActive();
+			
+			
+			
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+	
+	
+	
 	
 }
