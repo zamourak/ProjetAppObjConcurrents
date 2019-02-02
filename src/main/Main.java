@@ -1,29 +1,37 @@
 package main;
 
+import java.util.HashMap;
+
 import core.*;
 import gestionfichier.*;
 
 public class Main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		
-		Entreprise e = new Entreprise();
-		
-		FichierCSVElement fE = new FichierCSVElement();
-		FichierCSVChaineDeProduction fCdP = new FichierCSVChaineDeProduction();
-		
-		fE.ChargerElement();
-		System.out.println("---------------");
-		for(Element elem : Entreprise.enteprise.getListeElements()) {
-			System.out.println("iiio"+elem);
+		System.out.print("commencement");
+		Entreprise entreprise = new Entreprise();
+		FichierCSV fElement = new FichierCSVElement();
+		FichierCSV fcp = new FichierCSVChaineDeProduction();
+		fElement.Charger();
+		fcp.Charger();
+		/*for (Element e : Entreprise.enteprise.getListeElement()) {
+			System.out.println(e);
 		}
-		System.out.println("---------------");
-		fCdP.ChargerChaineDeProduction();
 		for (ChaineProduction cp : Entreprise.enteprise.getListeChaineProduction()) {
 			System.out.println(cp);
-		}
+		}*/
 		
+		System.out.println("------------------ TEST avant \n\n" +Entreprise.enteprise.getListeChaineProduction().get(1));
+		
+		Entreprise.enteprise.getListeChaineProduction().get(0).attribuerNiveauActivite(1);
+		Entreprise.enteprise.getListeChaineProduction().get(1).attribuerNiveauActivite(1);
+		System.out.print("démarrage prévision");
+		Entreprise.enteprise.Prevision();
+		
+		System.out.println("------------------ TEST après\n\n" +Entreprise.enteprise.getListeChaineProduction().get(1));
+		
+
 		
 		
 		

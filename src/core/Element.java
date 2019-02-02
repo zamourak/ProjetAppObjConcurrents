@@ -3,15 +3,22 @@ package core;
 public abstract class Element {
 	private String codeElement;
 	private String nom;
-	private String unitee;
-	private float prixAchat;
-	private float prixVente;
-	public Element(String codeElement, String nom, String unitee, float prixAchat, float prixVente) {
+	private Stockage stock;
+	private double prixAchat;
+	private double prixVente;
+	public Element(String codeElement, String nom, String unitee, double prixAchat, double prixVente) {
+		this(codeElement, nom, unitee, 0, prixAchat, prixVente);
+	}
+	public Element(String codeElement, String nom, String unitee, double quantite, double prixAchat, double prixVente) {
 		this.codeElement = codeElement;
 		this.nom = nom;
-		this.unitee = unitee;
+		this.stock = new Stockage(quantite, unitee);
 		this.prixAchat = prixAchat;
 		this.prixVente=prixVente;
+	}
+	
+	public Stockage getStock() {
+		return this.stock;
 	}
 	
 	public boolean CodeCorrect(String code) {
@@ -22,8 +29,8 @@ public abstract class Element {
 	}
 	
 	public String toString() {
-		return this.codeElement + " - " + this.nom + "\nmesure : " +this.unitee+ "\nprix d'achat : " + this.prixAchat
-				+ "\nprix de vente :" +this.prixVente; 
+		return this.codeElement + " - " + this.nom + "\nprix d'achat : " + this.prixAchat
+				+ "\nprix de vente :" +this.prixVente + "\n" + this.stock + "\n" ; 
 	}
 	
 	

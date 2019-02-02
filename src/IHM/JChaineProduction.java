@@ -9,12 +9,12 @@ package IHM;
  *
  * @author FlorianDELSOL
  */
-public class JChaîneProduction extends javax.swing.JPanel {
+public class JChaineProduction extends javax.swing.JPanel {
 
     /**
      * Creates new form JStockageGeneral
      */
-    public JChaîneProduction() {
+    public JChaineProduction() {
         initComponents();
     }
 
