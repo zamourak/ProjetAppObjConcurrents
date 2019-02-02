@@ -25,7 +25,8 @@ public class FichierCSVElement extends FichierCSV{
 			String[] attribut = src.split(",");
 			String code = attribut[0];
 			String nom = attribut[1];
-			String unite = attribut[2];
+			float stock = Float.parseFloat(attribut[2]);
+			String unite = attribut[3];
 			float achat;
 			float vente;
 			if(attribut[3].equals("NA")) {
@@ -39,9 +40,9 @@ public class FichierCSVElement extends FichierCSV{
 				vente = Float.parseFloat(attribut[4]);
 			}
 			if (attribut[5].equals("PF")) {
-				Entreprise.enteprise.ajouterElementDansEntreprise(new MatieresPremieres(code, nom, unite, achat, vente));
+				Entreprise.enteprise.ajouterElementDansEntreprise(new MatieresPremieres(code, nom, unite, stock, achat, vente));
 			}else {
-				Entreprise.enteprise.ajouterElementDansEntreprise(new MatieresPremieres(code, nom, unite, achat, vente));
+				Entreprise.enteprise.ajouterElementDansEntreprise(new MatieresPremieres(code, nom, unite, stock, achat, vente));
 			}
 		}		
 	}

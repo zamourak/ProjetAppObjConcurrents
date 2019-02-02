@@ -108,9 +108,10 @@ public class ChaineProduction {
 	 */
 	public HashMap<Element, Float> PrevisionProduction(){
 		effacerPrevision();
-		HashMap<Element, Float> stockTemp;
-		ArrayList <Element> elementsTemp = this.toArrayListElemEntree();
-		stockTemp = Entreprise.enteprise.getEtatsDesStocks(elementsTemp);
+		HashMap<Element, Float> stockTemp = new HashMap<Element, Float>();
+		for (Element e : this.entree.keySet()) {
+			stockTemp.put(e, e.getStock().getStock());
+		}
 		for(Element e : stockTemp.keySet()) {
 			if(stockTemp.get(e) - this.entree.get(e) < 0) {
 				break;
@@ -125,13 +126,7 @@ public class ChaineProduction {
 		return stockTemp;
 	}
 	
-	private ArrayList<Element> toArrayListElemEntree(){
-		ArrayList <Element> elements= new ArrayList <Element> ();
-		for(Element e : this.entree.keySet()) {
-			elements.add(e);
-		}
-		return elements;
-	}
+	
 	public Calendar getFinDeProduction() {
 		Calendar cTemp = new GregorianCalendar();
 		for(Production p : this.listeproduction) {

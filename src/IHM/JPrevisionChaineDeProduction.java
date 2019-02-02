@@ -9,12 +9,12 @@ package IHM;
  *
  * @author FlorianDELSOL
  */
-public class JPrévisionChaineDeProduction extends javax.swing.JPanel {
+public class JPrevisionChaineDeProduction extends javax.swing.JPanel {
 
     /**
      * Creates new form JPrévisionChaineDeProduction
      */
-    public JPrévisionChaineDeProduction() {
+    public JPrevisionChaineDeProduction() {
         initComponents();
     }
 

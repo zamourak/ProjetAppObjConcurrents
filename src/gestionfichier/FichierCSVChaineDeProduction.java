@@ -44,7 +44,8 @@ public class FichierCSVChaineDeProduction extends FichierCSV{
 	
 	public void ChargerChaineDeProduction() {
 		ArrayList<String> elements = this.Lecture();
-		int SortieCodeIndex = this.chercherIndexSortieElements(elements);		for (String src : elements) {
+		int SortieCodeIndex = this.chercherIndexSortieElements(elements);
+		for (String src : elements) {
 			String[] attribut = src.split(",");
 			String code = attribut[0];
 			String nom = attribut[1];
