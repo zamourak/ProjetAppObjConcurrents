@@ -28,6 +28,7 @@ public class JPrevision extends javax.swing.JPanel {
         initComponents();
         this.dcp = (DefaultTableModel) this.tableau_Chaine_Production.getModel();
         this.dstock = (DefaultTableModel) this.tableau_Stock.getModel();
+        this.remplirTable();
     }
     
     private void remplirTable() {
