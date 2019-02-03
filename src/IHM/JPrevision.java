@@ -5,19 +5,57 @@
  */
 package IHM;
 
+import core.ChaineProduction;
+import core.Element;
+import core.Entreprise;
+import core.Production;
+import java.util.ArrayList;
+import java.util.Collections;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author FlorianDELSOL
  */
 public class JPrevision extends javax.swing.JPanel {
-
+    private DefaultTableModel dcp = new DefaultTableModel();
+    private DefaultTableModel dstock = new DefaultTableModel();
     /**
      * Creates new form JChercherChaineProduction
      */
     public JPrevision() {
         initComponents();
+        this.dcp = (DefaultTableModel) this.tableau_Chaine_Production.getModel();
+        this.dstock = (DefaultTableModel) this.tableau_Stock.getModel();
     }
-
+    
+    private void remplirTable() {
+    	ArrayList<Element> stock = Entreprise.enteprise.getListeElement();
+        ArrayList<ChaineProduction> listeChaineProduction = Entreprise.enteprise.getListeChaineProduction();
+    	for(Element e : stock) {
+            Object[] ligne = new Object[]{
+               e.getCodeElement(),
+               e.getNom(),
+               e.getStock().getStock(),
+               e.getStock().getUnitee(),
+               e.getPrixAchat(),
+               e.getPrixVente()
+            };
+            this.dstock.addRow(ligne);
+        }
+        for(ChaineProduction cp : listeChaineProduction){
+            Object[] ligne = new Object[]{
+               cp.getCodeChaineProduction(),
+               cp.getNom(),
+               cp.getTemps(),
+               cp.getNiveauActivitee()
+            };
+            this.dcp.addRow(ligne);
+        }
+        
+        
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -36,9 +74,6 @@ public class JPrevision extends javax.swing.JPanel {
         titre_Etat_Stock = new javax.swing.JLabel();
         scroll_Tableau_Chaine_Production = new javax.swing.JScrollPane();
         tableau_Chaine_Production = new javax.swing.JTable();
-        titre_Detail_Production = new javax.swing.JLabel();
-        scroll_Tableau_Detail_Production = new javax.swing.JScrollPane();
-        tableau_Detail_Production = new javax.swing.JTable();
         exporter = new javax.swing.JButton();
 
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
@@ -62,17 +97,17 @@ public class JPrevision extends javax.swing.JPanel {
 
         tableau_Stock.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Code", "Nom", "Quantité", "Prix à l'achat", "Prix à la vente"
+                "Code", "Nom", "Quantité", "Unité", "Prix à l'achat", "Prix à la vente"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.Double.class, java.lang.Double.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -104,21 +139,6 @@ public class JPrevision extends javax.swing.JPanel {
         });
         scroll_Tableau_Chaine_Production.setViewportView(tableau_Chaine_Production);
 
-        titre_Detail_Production.setText("Détail des productions ");
-
-        tableau_Detail_Production.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
-            },
-            new String [] {
-                "Code Chaine de prodution", "Nom Chaine de production", "Code Element", "Nom Element", "Quantité", "Date"
-            }
-        ));
-        scroll_Tableau_Detail_Production.setViewportView(tableau_Detail_Production);
-
         exporter.setText("Exporter");
         exporter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,17 +156,17 @@ public class JPrevision extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(titre, javax.swing.GroupLayout.DEFAULT_SIZE, 352, Short.MAX_VALUE)
                 .addGap(103, 103, 103))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(scroll_Tableau_Stock)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(scroll_Tableau_Stock))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(titre_Detail_Production)
                             .addComponent(titre_Etat_Stock)
                             .addComponent(titre_Etat_Chaine_Production))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(scroll_Tableau_Detail_Production))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -167,16 +187,12 @@ public class JPrevision extends javax.swing.JPanel {
                 .addComponent(titre_Etat_Stock)
                 .addGap(18, 18, 18)
                 .addComponent(scroll_Tableau_Stock, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
-                .addComponent(titre_Detail_Production)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(scroll_Tableau_Detail_Production, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(143, 143, 143)
                     .addComponent(scroll_Tableau_Chaine_Production, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(934, Short.MAX_VALUE)))
+                    .addContainerGap(423, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -190,13 +206,10 @@ public class JPrevision extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable3;
     private javax.swing.JScrollPane scroll_Tableau_Chaine_Production;
-    private javax.swing.JScrollPane scroll_Tableau_Detail_Production;
     private javax.swing.JScrollPane scroll_Tableau_Stock;
     private javax.swing.JTable tableau_Chaine_Production;
-    private javax.swing.JTable tableau_Detail_Production;
     private javax.swing.JTable tableau_Stock;
     private javax.swing.JLabel titre;
-    private javax.swing.JLabel titre_Detail_Production;
     private javax.swing.JLabel titre_Etat_Chaine_Production;
     private javax.swing.JLabel titre_Etat_Stock;
     // End of variables declaration//GEN-END:variables

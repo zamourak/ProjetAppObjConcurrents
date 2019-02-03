@@ -46,19 +46,20 @@
               <Component id="titre" pref="352" max="32767" attributes="0"/>
               <EmptySpace min="-2" pref="103" max="-2" attributes="0"/>
           </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="scroll_Tableau_Stock" max="32767" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="scroll_Tableau_Stock" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="titre_Detail_Production" min="-2" max="-2" attributes="0"/>
                           <Component id="titre_Etat_Stock" min="-2" max="-2" attributes="0"/>
                           <Component id="titre_Etat_Chaine_Production" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
-                  <Component id="scroll_Tableau_Detail_Production" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -85,17 +86,13 @@
               <Component id="titre_Etat_Stock" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="scroll_Tableau_Stock" min="-2" pref="332" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-              <Component id="titre_Detail_Production" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="scroll_Tableau_Detail_Production" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="143" max="-2" attributes="0"/>
                   <Component id="scroll_Tableau_Chaine_Production" min="-2" pref="332" max="-2" attributes="0"/>
-                  <EmptySpace pref="934" max="32767" attributes="0"/>
+                  <EmptySpace pref="423" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -126,12 +123,13 @@
         <Component class="javax.swing.JTable" name="tableau_Stock">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="5" rowCount="4">
+              <Table columnCount="6" rowCount="4">
                 <Column editable="true" title="Code" type="java.lang.String"/>
                 <Column editable="true" title="Nom" type="java.lang.String"/>
                 <Column editable="true" title="Quantit&#xe9;" type="java.lang.Double"/>
-                <Column editable="true" title="Prix &#xe0; l&apos;achat" type="java.lang.Object"/>
-                <Column editable="true" title="Prix &#xe0; la vente" type="java.lang.Object"/>
+                <Column editable="true" title="Unit&#xe9;" type="java.lang.String"/>
+                <Column editable="true" title="Prix &#xe0; l&apos;achat" type="java.lang.Double"/>
+                <Column editable="true" title="Prix &#xe0; la vente" type="java.lang.Double"/>
               </Table>
             </Property>
           </Properties>
@@ -158,34 +156,6 @@
                 <Column editable="true" title="Nom" type="java.lang.String"/>
                 <Column editable="true" title="Temps de production" type="java.lang.Double"/>
                 <Column editable="true" title="Niveau" type="java.lang.Double"/>
-              </Table>
-            </Property>
-          </Properties>
-        </Component>
-      </SubComponents>
-    </Container>
-    <Component class="javax.swing.JLabel" name="titre_Detail_Production">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="D&#xe9;tail des productions "/>
-      </Properties>
-    </Component>
-    <Container class="javax.swing.JScrollPane" name="scroll_Tableau_Detail_Production">
-      <AuxValues>
-        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-      </AuxValues>
-
-      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-      <SubComponents>
-        <Component class="javax.swing.JTable" name="tableau_Detail_Production">
-          <Properties>
-            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="6" rowCount="4">
-                <Column editable="true" title="Code Chaine de prodution" type="java.lang.Object"/>
-                <Column editable="true" title="Nom Chaine de production" type="java.lang.Object"/>
-                <Column editable="true" title="Code Element" type="java.lang.Object"/>
-                <Column editable="true" title="Nom Element" type="java.lang.Object"/>
-                <Column editable="true" title="Quantit&#xe9;" type="java.lang.Object"/>
-                <Column editable="true" title="Date" type="java.lang.Object"/>
               </Table>
             </Property>
           </Properties>
