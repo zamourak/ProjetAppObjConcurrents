@@ -26,12 +26,14 @@ public class JPDetailChaineProduction extends javax.swing.JPanel {
         initComponents();
         this.d1 = (DefaultTableModel) this.tableau_Element_entree.getModel();
         this.d2 = (DefaultTableModel) this.tableau_Element_sortie.getModel();
+        this.finInitialisation();
     }
     private void finInitialisation(){
         this.code_Chaine_Label.setText(this.chaineProduction.getCodeChaineProduction());
         this.nom_Chaine_Label.setText(this.chaineProduction.getNom());
         this.temps_Chaine_Label.setText(""+this.chaineProduction.getTemps()+"");
         this.lvlActivite_Spinner.setValue(this.chaineProduction.getNiveauActivitee());
+        this.remplirTable();
     }
     
     private void remplirTable(){

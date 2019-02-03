@@ -168,7 +168,7 @@ public class JChercherChaineProduction extends javax.swing.JPanel {
         if(listechaine.size()!=1){
             this.correspondance.setText(listechaine.size() + " correspondance(s)" );
         }else{
-            this.fenetre.changerPanel(this);
+            this.fenetre.changerPanel(new JPDetailChaineProduction(listechaine.get(0)));
         }
     }//GEN-LAST:event_bouton_ChercherMouseClicked
     
