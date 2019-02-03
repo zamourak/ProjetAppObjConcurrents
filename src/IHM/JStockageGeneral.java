@@ -9,18 +9,21 @@ import java.util.ArrayList;
 
 import core.Element;
 import core.Entreprise;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author FlorianDELSOL
  */
 public class JStockageGeneral extends javax.swing.JPanel {
-
+    private DefaultTableModel d = new DefaultTableModel();
     /**
      * Creates new form JStockageGeneral
      */
     public JStockageGeneral() {
         initComponents();
+        this.d = (DefaultTableModel) this.Tableau_Stock.getModel();
+        this.remplirTable();
     }
 
     /**
@@ -41,13 +44,15 @@ public class JStockageGeneral extends javax.swing.JPanel {
         titre.setText("Etat général des stocks");
 
         Tableau_Stock.setModel(new javax.swing.table.DefaultTableModel(
-            this.remplirTable(),
+            new Object [][] {
+
+            },
             new String [] {
                 "Code", "Nom", "Quantitée", "Unitée"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Float.class, java.lang.String.class, java.lang.Object.class
+                java.lang.String.class, java.lang.String.class, java.lang.Float.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -80,16 +85,17 @@ public class JStockageGeneral extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private Object[][] remplirTable() {
+    private void remplirTable() {
     	ArrayList<Element> stock = Entreprise.enteprise.getListeElement();
-    	Object[][] objet = new Object[stock.size()][4];
-    	for(int i=0; i<objet.length; i++) {
-    		objet[i][0] = stock.get(i).getCodeElement();
-    		objet[i][1] = stock.get(i).getNom();
-    		objet[i][2] = stock.get(i).getStock().getStock();
-    		objet[i][3] = stock.get(i).getStock().getUnitee();
-    	}
-    	return objet;
+    	for(Element e : stock) {
+            Object[] ligne = new Object[]{
+               e.getCodeElement(),
+               e.getNom(),
+               e.getStock().getStock(),
+               e.getStock().getUnitee()
+            };
+            this.d.addRow(ligne);
+        }
     }
     
     
