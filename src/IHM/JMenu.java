@@ -114,7 +114,7 @@ public class JMenu extends javax.swing.JPanel {
     }//GEN-LAST:event_arbreMouseClicked
 
     private void previsionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_previsionMouseClicked
-        JFPrevision fenetreprevision = new JFPrevision();
+        new JFPrevision().setVisible(true);
     }//GEN-LAST:event_previsionMouseClicked
 
 
