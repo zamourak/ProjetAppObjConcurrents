@@ -96,6 +96,7 @@ public class JMenu extends javax.swing.JPanel {
         DefaultMutableTreeNode node = (DefaultMutableTreeNode) arbre.getSelectionPath().getLastPathComponent();
         String choix = node.getUserObject().toString();
         javax.swing.JPanel jp;
+        System.out.println("blabla");
         switch(choix){
             case "Etat des stocks" :
             	jp = new JStockageGeneral();

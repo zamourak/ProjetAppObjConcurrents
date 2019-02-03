@@ -105,9 +105,9 @@ public class JFApplication extends javax.swing.JFrame {
     }
     
     public void changerPanel(javax.swing.JPanel jp) {
-    	this.JPanelFirst=jp;
+    	this.JScrollBar.setViewportView(jp);
     	this.repaint();
-    	this.validate();
+    	this.revalidate();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
