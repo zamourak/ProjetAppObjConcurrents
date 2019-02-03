@@ -42,21 +42,13 @@ public class JMenu extends javax.swing.JPanel {
         titre.setText("Menu");
 
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Entreprise");
-        javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Gestion de production");
-        javax.swing.tree.DefaultMutableTreeNode treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Liste des Chaînes de production");
+        javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Gestion des Stocks");
+        javax.swing.tree.DefaultMutableTreeNode treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Etat des stocks");
         treeNode2.add(treeNode3);
         treeNode1.add(treeNode2);
-        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Gestion des Stocks");
-        treeNode1.add(treeNode2);
-        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Gestion des ressources");
-        treeNode1.add(treeNode2);
-        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Gestion des stockages");
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Etat des différents stockages");
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Gestion des chaines de production");
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Rechercher une chaine de production");
         treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Etat général des stocks");
-        treeNode2.add(treeNode3);
-        treeNode1.add(treeNode2);
-        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Gestion du personnel");
         treeNode1.add(treeNode2);
         arbre.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
         arbre.addMouseListener(new java.awt.event.MouseAdapter() {
