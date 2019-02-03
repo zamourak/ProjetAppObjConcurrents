@@ -6,6 +6,7 @@
 package IHM;
 
 import core.ChaineProduction;
+import core.Entreprise;
 import java.util.ArrayList;
 
 /**
@@ -163,7 +164,7 @@ public class JChercherChaineProduction extends javax.swing.JPanel {
     }//GEN-LAST:event_bouton_ChercherActionPerformed
 
     private void bouton_ChercherMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bouton_ChercherMouseClicked
-        ArrayList<ChaineProduction> listechaine = new ArrayList<ChaineProduction>();
+        ArrayList<ChaineProduction> listechaine = Entreprise.enteprise.chercherChaineDeProduction(this.codeField.getText(), this.nomField.getText(), Integer.parseInt(this.tempsField.getText()));
         if(listechaine.size()!=1){
             this.correspondance.setText(listechaine.size() + " correspondance(s)" );
         }else{
