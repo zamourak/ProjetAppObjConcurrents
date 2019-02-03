@@ -31,7 +31,7 @@ public class JPDetailChaineProduction extends javax.swing.JPanel {
     private void finInitialisation(){
         this.code_Chaine_Label.setText(this.chaineProduction.getCodeChaineProduction());
         this.nom_Chaine_Label.setText(this.chaineProduction.getNom());
-        this.temps_Chaine_Label.setText(""+this.chaineProduction.getTemps()+"");
+        this.temps_Chaine_Label.setText(""+this.chaineProduction.getTemps()+" minutes");
         this.lvlActivite_Spinner.setValue(this.chaineProduction.getNiveauActivitee());
         this.remplirTable();
     }
@@ -58,7 +58,7 @@ public class JPDetailChaineProduction extends javax.swing.JPanel {
                 e.getStock().getStock(),
                 e.getStock().getUnitee()
             };
-            this.d1.addRow(obj);
+            this.d2.addRow(obj);
         }
     }
 
@@ -105,14 +105,17 @@ public class JPDetailChaineProduction extends javax.swing.JPanel {
 
         lvlActivite.setText("niveau d'activité : ");
 
+        lvlActivite_Spinner.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                lvlActivite_SpinnerStateChanged(evt);
+            }
+        });
+
         titre_elem_entree.setText("Elements en entrée");
 
         tableau_Element_entree.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "Code", "Nom", "Quantité necessaire", "Quantité disponible", "Unité"
@@ -132,10 +135,7 @@ public class JPDetailChaineProduction extends javax.swing.JPanel {
 
         tableau_Element_sortie.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "Code", "Nom", "Quantité necessaire", "Quantité disponible", "Unité"
@@ -219,6 +219,11 @@ public class JPDetailChaineProduction extends javax.swing.JPanel {
                 .addContainerGap(43, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void lvlActivite_SpinnerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_lvlActivite_SpinnerStateChanged
+        this.chaineProduction.attribuerNiveauActivite((int) this.lvlActivite_Spinner.getValue());
+        System.out.println(this.chaineProduction.getNiveauActivitee());
+    }//GEN-LAST:event_lvlActivite_SpinnerStateChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
