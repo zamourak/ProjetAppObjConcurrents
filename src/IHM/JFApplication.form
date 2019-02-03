@@ -27,27 +27,34 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <Component id="jMenu2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="jPAccueil1" min="-2" pref="600" max="-2" attributes="0"/>
+              <Component id="Menu" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
+              <Component id="JScrollBar" pref="615" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPAccueil1" max="32767" attributes="0"/>
-          <Group type="102" alignment="1" attributes="0">
-              <Component id="jMenu2" min="-2" max="-2" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                  <Component id="JScrollBar" max="32767" attributes="0"/>
+                  <Component id="Menu" max="32767" attributes="0"/>
+              </Group>
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="IHM.JPAccueil" name="jPAccueil1">
+    <Component class="IHM.JMenu" name="Menu">
     </Component>
-    <Component class="IHM.JMenu" name="jMenu2">
-    </Component>
+    <Container class="javax.swing.JScrollPane" name="JScrollBar">
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="IHM.JPAccueil" name="Panel_Acc">
+        </Component>
+      </SubComponents>
+    </Container>
   </SubComponents>
 </Form>

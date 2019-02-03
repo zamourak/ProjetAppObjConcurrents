@@ -9,12 +9,12 @@ package IHM;
  *
  * @author FlorianDELSOL
  */
-public class JStockageGeneral extends javax.swing.JPanel {
+public class JPListeChaineProduction extends javax.swing.JPanel {
 
     /**
-     * Creates new form JStockageGeneral
+     * Creates new form JPAccueil
      */
-    public JStockageGeneral() {
+    public JPListeChaineProduction() {
         initComponents();
     }
 
@@ -28,30 +28,12 @@ public class JStockageGeneral extends javax.swing.JPanel {
     private void initComponents() {
 
         titre = new javax.swing.JLabel();
-        scroll_Tableau_Etat_Stock = new javax.swing.JScrollPane();
-        Tableau_Stock = new javax.swing.JTable();
+
+        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         titre.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         titre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        titre.setText("Etat général des stocks");
-
-        Tableau_Stock.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Code", "Nom", "Quantitée", "Unitée", "Option"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Float.class, java.lang.String.class, java.lang.Object.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        scroll_Tableau_Etat_Stock.setViewportView(Tableau_Stock);
+        titre.setText("Chaines de production");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -60,27 +42,19 @@ public class JStockageGeneral extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(159, 159, 159)
                 .addComponent(titre, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(126, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(scroll_Tableau_Etat_Stock)
-                .addContainerGap())
+                .addContainerGap(124, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(titre, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(scroll_Tableau_Etat_Stock, javax.swing.GroupLayout.PREFERRED_SIZE, 486, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addComponent(titre, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(513, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable Tableau_Stock;
-    private javax.swing.JScrollPane scroll_Tableau_Etat_Stock;
     private javax.swing.JLabel titre;
     // End of variables declaration//GEN-END:variables
 }
