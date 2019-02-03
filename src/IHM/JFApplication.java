@@ -27,7 +27,7 @@ public class JFApplication extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Menu = new IHM.JMenu();
+        Menu = new IHM.JMenu(this);
         JScrollBar = new javax.swing.JScrollPane();
         JPanelFirst = new javax.swing.JPanel();
 
@@ -102,6 +102,12 @@ public class JFApplication extends javax.swing.JFrame {
                 new JFApplication().setVisible(true);
             }
         });
+    }
+    
+    public void changerPanel(javax.swing.JPanel jp) {
+    	this.JPanelFirst=jp;
+    	this.repaint();
+    	this.validate();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

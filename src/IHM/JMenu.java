@@ -13,12 +13,13 @@ import javax.swing.tree.DefaultMutableTreeNode;
  */
 public class JMenu extends javax.swing.JPanel {
 
-    private javax.swing.JFrame fenetre;
+    private JFApplication fenetre;
     
     /**
      * Creates new form JMenu
      */
-    public JMenu() {
+    public JMenu(JFApplication fenetre) {
+    	this.fenetre=fenetre;
         initComponents();
     }
 
@@ -45,7 +46,7 @@ public class JMenu extends javax.swing.JPanel {
         javax.swing.tree.DefaultMutableTreeNode treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Liste des Chaînes de production");
         treeNode2.add(treeNode3);
         treeNode1.add(treeNode2);
-        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Gestion des achats");
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Gestion des Stocks");
         treeNode1.add(treeNode2);
         treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Gestion des ressources");
         treeNode1.add(treeNode2);
@@ -102,11 +103,16 @@ public class JMenu extends javax.swing.JPanel {
     private void arbreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arbreMouseClicked
         DefaultMutableTreeNode node = (DefaultMutableTreeNode) arbre.getSelectionPath().getLastPathComponent();
         String choix = node.getUserObject().toString();
+        javax.swing.JPanel jp;
         switch(choix){
             case "Etat des stocks" :
-                break;
+            	jp = new JStockageGeneral();
+                this.fenetre.changerPanel(jp);
+            	break;
             case "Rechercher une chaine de production" :
-                break;            
+            	jp = new JChercherChaineProduction();
+            	this.fenetre.changerPanel(jp);
+                break;     
             
         }
     }//GEN-LAST:event_arbreMouseClicked
