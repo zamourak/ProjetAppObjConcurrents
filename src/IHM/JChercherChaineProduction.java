@@ -5,16 +5,20 @@
  */
 package IHM;
 
+import core.ChaineProduction;
+import java.util.ArrayList;
+
 /**
  *
  * @author FlorianDELSOL
  */
 public class JChercherChaineProduction extends javax.swing.JPanel {
-
+    JFApplication fenetre;
     /**
      * Creates new form JChercherChaineProduction
      */
-    public JChercherChaineProduction() {
+    public JChercherChaineProduction(JFApplication jframefirst) {
+        this.fenetre=jframefirst;
         initComponents();
     }
 
@@ -35,8 +39,7 @@ public class JChercherChaineProduction extends javax.swing.JPanel {
         tempsField = new javax.swing.JTextField();
         Temps = new javax.swing.JLabel();
         correspondance = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        bouton_Chercher = new javax.swing.JButton();
 
         titre.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         titre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -72,10 +75,17 @@ public class JChercherChaineProduction extends javax.swing.JPanel {
         correspondance.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         correspondance.setText("0 correspondance");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jTextArea1.setText("Le logiciel chargera la Chaine de production\ndès qu'elle la trouvera.");
-        jScrollPane1.setViewportView(jTextArea1);
+        bouton_Chercher.setText("Chercher");
+        bouton_Chercher.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bouton_ChercherMouseClicked(evt);
+            }
+        });
+        bouton_Chercher.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bouton_ChercherActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -104,11 +114,12 @@ public class JChercherChaineProduction extends javax.swing.JPanel {
                                     .addComponent(code, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(codeField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(103, 103, 103))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(254, 254, 254)
+                .addComponent(bouton_Chercher)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -127,11 +138,11 @@ public class JChercherChaineProduction extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Temps)
                     .addComponent(tempsField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(48, 48, 48)
                 .addComponent(correspondance)
-                .addContainerGap(169, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(bouton_Chercher)
+                .addContainerGap(220, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -146,16 +157,28 @@ public class JChercherChaineProduction extends javax.swing.JPanel {
     private void tempsFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tempsFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tempsFieldActionPerformed
+
+    private void bouton_ChercherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bouton_ChercherActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bouton_ChercherActionPerformed
+
+    private void bouton_ChercherMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bouton_ChercherMouseClicked
+        ArrayList<ChaineProduction> listechaine = new ArrayList<ChaineProduction>();
+        if(listechaine.size()!=1){
+            this.correspondance.setText(listechaine.size() + " correspondance(s)" );
+        }else{
+            this.fenetre.changerPanel(this);
+        }
+    }//GEN-LAST:event_bouton_ChercherMouseClicked
     
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Temps;
+    private javax.swing.JButton bouton_Chercher;
     private javax.swing.JLabel code;
     private javax.swing.JTextField codeField;
     private javax.swing.JLabel correspondance;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel nom;
     private javax.swing.JTextField nomField;
     private javax.swing.JTextField tempsField;

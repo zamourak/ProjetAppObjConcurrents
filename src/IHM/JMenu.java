@@ -102,7 +102,7 @@ public class JMenu extends javax.swing.JPanel {
                 this.fenetre.changerPanel(jp);
             	break;
             case "Rechercher une chaine de production" :
-            	jp = new JChercherChaineProduction();
+            	jp = new JChercherChaineProduction(this.fenetre);
             	this.fenetre.changerPanel(jp);
                 break;
         }

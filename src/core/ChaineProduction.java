@@ -273,4 +273,32 @@ public class ChaineProduction {
 	public int getTemps() {
 		return this.temps;
 	}
+
+    public String getCodeChaineProduction() {
+        return codeChaineProduction;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public int getNiveauActivitee() {
+        return niveauActivitee;
+    }
+
+    public HashMap<Element, Double> getEntree() {
+        return entree;
+    }
+
+    public HashMap<Element, Double> getSortie() {
+        return sortie;
+    }
+
+    public ArrayList<Production> getListeproduction() {
+        return listeproduction;
+    }
+        
+        
+        
+        
 }

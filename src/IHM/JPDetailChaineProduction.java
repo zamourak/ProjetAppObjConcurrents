@@ -5,17 +5,59 @@
  */
 package IHM;
 
+import core.ChaineProduction;
+import core.Element;
+import java.util.HashMap;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author FlorianDELSOL
  */
 public class JPDetailChaineProduction extends javax.swing.JPanel {
-
+    private ChaineProduction chaineProduction;
+    private DefaultTableModel d1 = new DefaultTableModel();
+    private DefaultTableModel d2 = new DefaultTableModel();
     /**
      * Creates new form JStockageGeneral
      */
-    public JPDetailChaineProduction() {
+    public JPDetailChaineProduction(ChaineProduction chaineProduction) {
+        this.chaineProduction=chaineProduction;
         initComponents();
+        this.d1 = (DefaultTableModel) this.tableau_Element_entree.getModel();
+        this.d2 = (DefaultTableModel) this.tableau_Element_sortie.getModel();
+    }
+    private void finInitialisation(){
+        this.code_Chaine_Label.setText(this.chaineProduction.getCodeChaineProduction());
+        this.nom_Chaine_Label.setText(this.chaineProduction.getNom());
+        this.temps_Chaine_Label.setText(""+this.chaineProduction.getTemps()+"");
+        this.lvlActivite_Spinner.setValue(this.chaineProduction.getNiveauActivitee());
+    }
+    
+    private void remplirTable(){
+        HashMap<Element, Double> dictionnaireEntree = this.chaineProduction.getEntree();
+        HashMap<Element, Double> dictionnaireSortie = this.chaineProduction.getSortie();
+        Object[] obj;
+        for (Element e : dictionnaireEntree.keySet()){
+            obj = new Object[]{
+                e.getCodeElement(),
+                e.getNom(),
+                dictionnaireEntree.get(e),
+                e.getStock().getStock(),
+                e.getStock().getUnitee()
+            };
+            this.d1.addRow(obj);
+        }
+        for (Element e : dictionnaireSortie.keySet()){
+            obj = new Object[]{
+                e.getCodeElement(),
+                e.getNom(),
+                dictionnaireEntree.get(e),
+                e.getStock().getStock(),
+                e.getStock().getUnitee()
+            };
+            this.d1.addRow(obj);
+        }
     }
 
     /**
@@ -65,17 +107,17 @@ public class JPDetailChaineProduction extends javax.swing.JPanel {
 
         tableau_Element_entree.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Code", "Nom", "Quantité necessaire", "Quantité disponible"
+                "Code", "Nom", "Quantité necessaire", "Quantité disponible", "Unité"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.Double.class
+                java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.Double.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -88,17 +130,17 @@ public class JPDetailChaineProduction extends javax.swing.JPanel {
 
         tableau_Element_sortie.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Code", "Nom", "Quantité necessaire", "Quantité disponible"
+                "Code", "Nom", "Quantité necessaire", "Quantité disponible", "Unité"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.Double.class
+                java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.Double.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -132,16 +174,16 @@ public class JPDetailChaineProduction extends javax.swing.JPanel {
                                 .addComponent(code_Chaine_Label)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(scroll_Tableau_Elem_sortie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(titre_elem_sortie)
-                            .addComponent(scroll_Tableau_Elem_entree, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(titre_elem_entree)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(temps)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(temps_Chaine_Label)))
-                        .addGap(0, 106, Short.MAX_VALUE))))
+                                .addComponent(temps_Chaine_Label))
+                            .addComponent(scroll_Tableau_Elem_entree, javax.swing.GroupLayout.DEFAULT_SIZE, 520, Short.MAX_VALUE)
+                            .addComponent(scroll_Tableau_Elem_sortie))
+                        .addGap(0, 38, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
