@@ -146,7 +146,8 @@ public class JChercherChaineProduction extends javax.swing.JPanel {
     private void tempsFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tempsFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tempsFieldActionPerformed
-
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Temps;

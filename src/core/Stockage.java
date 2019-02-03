@@ -52,5 +52,11 @@ public class Stockage {
 	public String toString() {
 		return "Le stock est de " + this.quantite + " " + this.unitee;
 	}
+
+	public String getUnitee() {
+		return unitee;
+	}
+	
+	
 	
 }

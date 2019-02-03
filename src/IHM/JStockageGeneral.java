@@ -5,6 +5,11 @@
  */
 package IHM;
 
+import java.util.ArrayList;
+
+import core.Element;
+import core.Entreprise;
+
 /**
  *
  * @author FlorianDELSOL
@@ -36,11 +41,9 @@ public class JStockageGeneral extends javax.swing.JPanel {
         titre.setText("Etat général des stocks");
 
         Tableau_Stock.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
+            this.remplirTable(),
             new String [] {
-                "Code", "Nom", "Quantitée", "Unitée", "Option"
+                "Code", "Nom", "Quantitée", "Unitée"
             }
         ) {
             Class[] types = new Class [] {
@@ -77,7 +80,19 @@ public class JStockageGeneral extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-
+    private Object[][] remplirTable() {
+    	ArrayList<Element> stock = Entreprise.enteprise.getListeElement();
+    	Object[][] objet = new Object[stock.size()][4];
+    	for(int i=0; i<objet.length; i++) {
+    		objet[i][0] = stock.get(i).getCodeElement();
+    		objet[i][1] = stock.get(i).getNom();
+    		objet[i][2] = stock.get(i).getStock().getStock();
+    		objet[i][3] = stock.get(i).getStock().getUnitee();
+    	}
+    	return objet;
+    }
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable Tableau_Stock;
     private javax.swing.JScrollPane scroll_Tableau_Etat_Stock;

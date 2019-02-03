@@ -93,7 +93,23 @@ public abstract class Element {
 		return this.codeElement + " - " + this.nom + "\nprix d'achat : " + this.prixAchat
 				+ "\nprix de vente :" +this.prixVente + "\n" + this.stock + "\n" ; 
 	}
-	
+
+	public String getCodeElement() {
+		return codeElement;
+	}
+
+	public String getNom() {
+		return nom;
+	}
+
+	public double getPrixAchat() {
+		return prixAchat;
+	}
+
+	public double getPrixVente() {
+		return prixVente;
+	}
+
 	
 	
 	

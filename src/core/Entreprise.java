@@ -100,7 +100,7 @@ public class Entreprise {
          * @param chaineproduction 
          *  chaine de production que l'on souhaite retirer
          */
-        public void retirerChaineProductionDansEntreprise(ChaineProduction chaineproduction) {
+    public void retirerChaineProductionDansEntreprise(ChaineProduction chaineproduction) {
 		this.listeChaineProduction.remove(chaineproduction);
 	}
 	
@@ -109,7 +109,7 @@ public class Entreprise {
          * @param personnel
          *  personnel que l'on souhaite retirer
          */
-        public void retirerPersonnelDansEntrepise(Personnel personnel) {
+    public void retirerPersonnelDansEntrepise(Personnel personnel) {
 		this.listePersonnel.remove(personnel);
 	}	
 

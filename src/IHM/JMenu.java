@@ -96,7 +96,6 @@ public class JMenu extends javax.swing.JPanel {
         DefaultMutableTreeNode node = (DefaultMutableTreeNode) arbre.getSelectionPath().getLastPathComponent();
         String choix = node.getUserObject().toString();
         javax.swing.JPanel jp;
-        System.out.println("blabla");
         switch(choix){
             case "Etat des stocks" :
             	jp = new JStockageGeneral();
@@ -105,8 +104,7 @@ public class JMenu extends javax.swing.JPanel {
             case "Rechercher une chaine de production" :
             	jp = new JChercherChaineProduction();
             	this.fenetre.changerPanel(jp);
-                break;     
-            
+                break;
         }
     }//GEN-LAST:event_arbreMouseClicked
 

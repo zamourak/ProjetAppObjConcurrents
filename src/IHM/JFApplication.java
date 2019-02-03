@@ -5,6 +5,11 @@
  */
 package IHM;
 
+import core.Entreprise;
+import gestionfichier.FichierCSV;
+import gestionfichier.FichierCSVChaineDeProduction;
+import gestionfichier.FichierCSVElement;
+
 /**
  *
  * @author FlorianDELSOL
