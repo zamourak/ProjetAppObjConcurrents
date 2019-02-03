@@ -61,6 +61,9 @@
               <TreeModel code="Entreprise&#xa; Gestion de production&#xa;  Liste des Cha&#xee;nes de production&#xa; Gestion des achats&#xa; Gestion des ressources&#xa; Gestion des stockages&#xa;  Etat des diff&#xe9;rents stockages&#xa;  Etat g&#xe9;n&#xe9;ral des stocks&#xa; Gestion du personnel"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="arbreMouseClicked"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

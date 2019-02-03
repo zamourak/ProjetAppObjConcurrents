@@ -5,6 +5,8 @@
  */
 package IHM;
 
+import javax.swing.tree.DefaultMutableTreeNode;
+
 /**
  *
  * @author FlorianDELSOL
@@ -56,6 +58,11 @@ public class JMenu extends javax.swing.JPanel {
         treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Gestion du personnel");
         treeNode1.add(treeNode2);
         arbre.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        arbre.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                arbreMouseClicked(evt);
+            }
+        });
         scrollPanel.setViewportView(arbre);
 
         prevision.setText("Prévision");
@@ -91,6 +98,18 @@ public class JMenu extends javax.swing.JPanel {
     private void previsionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_previsionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_previsionActionPerformed
+
+    private void arbreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arbreMouseClicked
+        DefaultMutableTreeNode node = (DefaultMutableTreeNode) arbre.getSelectionPath().getLastPathComponent();
+        String choix = node.getUserObject().toString();
+        switch(choix){
+            case "Etat des stocks" :
+                break;
+            case "Rechercher une chaine de production" :
+                break;            
+            
+        }
+    }//GEN-LAST:event_arbreMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
