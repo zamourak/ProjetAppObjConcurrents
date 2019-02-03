@@ -11,6 +11,8 @@ package IHM;
  */
 public class JMenu extends javax.swing.JPanel {
 
+    private javax.swing.JFrame fenetre;
+    
     /**
      * Creates new form JMenu
      */

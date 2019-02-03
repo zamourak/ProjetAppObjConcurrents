@@ -29,12 +29,23 @@ public class JFApplication extends javax.swing.JFrame {
 
         Menu = new IHM.JMenu();
         JScrollBar = new javax.swing.JScrollPane();
-        Panel_Acc = new IHM.JPAccueil();
+        JPanelFirst = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(800, 600));
 
-        JScrollBar.setViewportView(Panel_Acc);
+        javax.swing.GroupLayout JPanelFirstLayout = new javax.swing.GroupLayout(JPanelFirst);
+        JPanelFirst.setLayout(JPanelFirstLayout);
+        JPanelFirstLayout.setHorizontalGroup(
+            JPanelFirstLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 589, Short.MAX_VALUE)
+        );
+        JPanelFirstLayout.setVerticalGroup(
+            JPanelFirstLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 598, Short.MAX_VALUE)
+        );
+
+        JScrollBar.setViewportView(JPanelFirst);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -43,7 +54,7 @@ public class JFApplication extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(Menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JScrollBar, javax.swing.GroupLayout.DEFAULT_SIZE, 615, Short.MAX_VALUE))
+                .addComponent(JScrollBar, javax.swing.GroupLayout.DEFAULT_SIZE, 591, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -94,8 +105,8 @@ public class JFApplication extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel JPanelFirst;
     private javax.swing.JScrollPane JScrollBar;
     private IHM.JMenu Menu;
-    private IHM.JPAccueil Panel_Acc;
     // End of variables declaration//GEN-END:variables
 }
