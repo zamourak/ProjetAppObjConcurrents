@@ -6,12 +6,30 @@ import java.util.HashMap;
 import java.util.Iterator;
 
 public class Entreprise {
+        /**
+         * liste des achats faite par l'entreprise
+         */
 	private ArrayList<Achat> listeAchats;
+        /**
+         * liste des elements existant dans l'entreprise
+         */
 	private ArrayList<Element> listeElements;
+        /**
+         * liste des chaines de production existant dans l'enteprise
+         */
 	private ArrayList<ChaineProduction> listeChaineProduction;
+        /**
+         * liste du personnel de l'entreprise
+         */
 	private ArrayList<Personnel> listePersonnel;
+        /**
+         * premiere entreprise cree
+         */
 	public static Entreprise enteprise;
 	
+        /**
+         * Instancie une entreprise et si c'est la premiere l'indique en static
+         */
 	public Entreprise() {
 		this.listeAchats = new ArrayList<Achat> ();
 		this.listeElements = new ArrayList<Element> ();
@@ -23,32 +41,84 @@ public class Entreprise {
 		
 	}
 	
+        /**
+         * Ajoute un element dans l'entreprise
+         * @param elem
+         *  element que l'on souhaite ajouter
+         */
 	public void ajouterElementDansEntreprise(Element elem) {
 		this.listeElements.add(elem);
 	}
+        
+        /**
+         * Ajoute un achat dans l'entreprise
+         * @param achat 
+         *  achat que l'on souhaite ajouter
+         */
 	public void ajouterAchatDansEntreprise(Achat achat) {
 		this.listeAchats.add(achat);
 	}
+        
+        /**
+         * Ajoute une chaine de production dans l'entreprise
+         * @param chaineproduction 
+         *  chaine de production que l'on souhaite ajouter
+         */
 	public void ajouterChaineProductionDansEntreprise(ChaineProduction chaineproduction) {
 		this.listeChaineProduction.add(chaineproduction);
 	}
+        
+        /**
+         * Ajoute un personnel a l'entreprise
+         * @param personnel
+         *  personnel que l'on souhaite ajouter
+         */
 	public void ajouterPersonnelDansEntrepise(Personnel personnel) {
 		this.listePersonnel.add(personnel);
 	}
 	
+        /**
+         * Retire un element dans l'entreprise
+         * @param elem
+         *  element que l'on souhaite retirer
+         */
 	public void retirerElementDansEntreprise(Element elem) {
 		this.listeElements.remove(elem);
 	}
+        
+        /**
+         * Retire un achat dans l'entreprise
+         * @param achat 
+         *  achat que l'on souhaite retirer
+         */
 	public void retirerAchatDansEntreprise(Achat achat) {
 		this.listeAchats.remove(achat);
 	}
-	public void retirerChaineProductionDansEntreprise(ChaineProduction chaineproduction) {
+	
+        /**
+         * Retire une chaine de production dans l'entreprise
+         * @param chaineproduction 
+         *  chaine de production que l'on souhaite retirer
+         */
+    public void retirerChaineProductionDansEntreprise(ChaineProduction chaineproduction) {
 		this.listeChaineProduction.remove(chaineproduction);
 	}
-	public void retirerPersonnelDansEntrepise(Personnel personnel) {
+	
+        /**
+         * Retire un personnel a l'entreprise
+         * @param personnel
+         *  personnel que l'on souhaite retirer
+         */
+    public void retirerPersonnelDansEntrepise(Personnel personnel) {
 		this.listePersonnel.remove(personnel);
 	}	
 
+        /**
+         * Recherche un element dans la liste des elements de l'entreprise
+         * @param code
+         *  identifiant de l'element que l'on recherche
+         * @return l'element si on le trouve, sinon null
+         */
 	public Element rechercherElement(String code) {
 		for(Element e : this.listeElements) {
 			if(e.CodeCorrect(code)) {
@@ -58,14 +128,32 @@ public class Entreprise {
 		return null;
 	}
 
+        /**
+         * 
+         * @return la liste des chaines de production de l'entreprise 
+         */
 	public ArrayList<ChaineProduction> getListeChaineProduction() {
 		return listeChaineProduction;
 	}
 	
+        /**
+         * 
+         * @return la liste des elements de l'entreprise 
+         */
 	public ArrayList<Element> getListeElement() {
 		return this.listeElements;
 	}
 	
+        /**
+         * Recherche une chaine de production dans l'entreprise avec un code et/ou un nom et/ou un temps
+         * @param code
+         *  Identifiant de la chaine de production
+         * @param nom
+         *  nom de la chaine de production
+         * @param temps
+         *  temps de production de la chaine de production
+         * @return la liste de correspondance des chaines de production en fonction des parametres
+         */
 	public ArrayList<ChaineProduction> chercherChaineDeProduction(String code, String nom, int temps) {
 		ArrayList<ChaineProduction> TempCP = new ArrayList<ChaineProduction>();
 		for(ChaineProduction cp : this.listeChaineProduction) {
@@ -76,6 +164,10 @@ public class Entreprise {
 		return TempCP;
 	}
 	
+        /**
+         * Construit la liste des chaines de production qui sont actives (peuvent produire)
+         * @return la liste des chaines de production qui sont active (niveau d'activite>0 et stock suffisant)
+         */
 	public ArrayList<ChaineProduction> chainesProductionActive(){
 		ArrayList<ChaineProduction> chainesProductionActive = new ArrayList<ChaineProduction>();
 		for(ChaineProduction cp: this.listeChaineProduction) {
@@ -85,7 +177,14 @@ public class Entreprise {
 		}
 		return chainesProductionActive;
 	}
-	public ArrayList<ChaineProduction> chainesProductionActive(ArrayList<ChaineProduction> chaineproduction){
+	
+        /**
+         * Construit la liste des chaines de production qui sont actives en fonction des chaines de production envoyees(peuvent produire)
+         * @param chaineproduction
+         *  liste de chaine de production
+         * @return la liste des chaines de production qui sont active (niveau d'activite>0 et stock suffisant)
+         */
+        public ArrayList<ChaineProduction> chainesProductionActive(ArrayList<ChaineProduction> chaineproduction){
 		ArrayList<ChaineProduction> chainesProductionActive = new ArrayList<ChaineProduction>();
 		for(ChaineProduction cp: chaineproduction) {
 			if (cp.peutProduire()) {
@@ -95,6 +194,9 @@ public class Entreprise {
 		return chainesProductionActive;
 	}
 	
+        /**
+         * 
+         */
 	public void Prevision() {
 		ArrayList<ChaineProduction> chainesProductionActive = this.chainesProductionActive();
 		while(chainesProductionActive.size()>0) {
@@ -116,20 +218,7 @@ public class Entreprise {
 			
 			
 			
-		}
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+		}	
 	}
 	
 	

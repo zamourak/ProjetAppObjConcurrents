@@ -5,17 +5,25 @@
  */
 package IHM;
 
+import java.util.ArrayList;
+
+import core.Element;
+import core.Entreprise;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author FlorianDELSOL
  */
 public class JStockageGeneral extends javax.swing.JPanel {
-
+    private DefaultTableModel d = new DefaultTableModel();
     /**
      * Creates new form JStockageGeneral
      */
     public JStockageGeneral() {
         initComponents();
+        this.d = (DefaultTableModel) this.Tableau_Stock.getModel();
+        this.remplirTable();
     }
 
     /**
@@ -27,31 +35,31 @@ public class JStockageGeneral extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        titre = new javax.swing.JLabel();
+        scroll_Tableau_Etat_Stock = new javax.swing.JScrollPane();
+        Tableau_Stock = new javax.swing.JTable();
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Etat général des stocks");
+        titre.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        titre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        titre.setText("Etat général des stocks");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        Tableau_Stock.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Code", "Nom", "Quantitée", "Unitée", "Option"
+                "Code", "Nom", "Quantitée", "Unitée"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Float.class, java.lang.String.class, java.lang.Object.class
+                java.lang.String.class, java.lang.String.class, java.lang.Float.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        scroll_Tableau_Etat_Stock.setViewportView(Tableau_Stock);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -59,28 +67,41 @@ public class JStockageGeneral extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(159, 159, 159)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(titre, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(126, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1)
+                .addComponent(scroll_Tableau_Etat_Stock)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(titre, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 486, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(scroll_Tableau_Etat_Stock, javax.swing.GroupLayout.PREFERRED_SIZE, 486, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(27, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-
+    private void remplirTable() {
+    	ArrayList<Element> stock = Entreprise.enteprise.getListeElement();
+    	for(Element e : stock) {
+            Object[] ligne = new Object[]{
+               e.getCodeElement(),
+               e.getNom(),
+               e.getStock().getStock(),
+               e.getStock().getUnitee()
+            };
+            this.d.addRow(ligne);
+        }
+    }
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable Tableau_Stock;
+    private javax.swing.JScrollPane scroll_Tableau_Etat_Stock;
+    private javax.swing.JLabel titre;
     // End of variables declaration//GEN-END:variables
 }

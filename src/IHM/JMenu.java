@@ -5,16 +5,21 @@
  */
 package IHM;
 
+import javax.swing.tree.DefaultMutableTreeNode;
+
 /**
  *
  * @author FlorianDELSOL
  */
 public class JMenu extends javax.swing.JPanel {
 
+    private JFApplication fenetre;
+    
     /**
      * Creates new form JMenu
      */
-    public JMenu() {
+    public JMenu(JFApplication fenetre) {
+    	this.fenetre=fenetre;
         initComponents();
     }
 
@@ -27,39 +32,41 @@ public class JMenu extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTree1 = new javax.swing.JTree();
-        jButton1 = new javax.swing.JButton();
+        titre = new javax.swing.JLabel();
+        scrollPanel = new javax.swing.JScrollPane();
+        arbre = new javax.swing.JTree();
+        prevision = new javax.swing.JButton();
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Menu");
+        titre.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        titre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        titre.setText("Menu");
 
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Entreprise");
-        javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Gestion de production");
-        javax.swing.tree.DefaultMutableTreeNode treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Liste des Chaînes de production");
+        javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Gestion des Stocks");
+        javax.swing.tree.DefaultMutableTreeNode treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Etat des stocks");
         treeNode2.add(treeNode3);
         treeNode1.add(treeNode2);
-        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Gestion des achats");
-        treeNode1.add(treeNode2);
-        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Gestion des ressources");
-        treeNode1.add(treeNode2);
-        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Gestion des stockages");
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Etat des différents stockages");
-        treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Etat général des stocks");
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Gestion des chaines de production");
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Rechercher une chaine de production");
         treeNode2.add(treeNode3);
         treeNode1.add(treeNode2);
-        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Gestion du personnel");
-        treeNode1.add(treeNode2);
-        jTree1.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
-        jScrollPane1.setViewportView(jTree1);
+        arbre.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        arbre.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                arbreMouseClicked(evt);
+            }
+        });
+        scrollPanel.setViewportView(arbre);
 
-        jButton1.setText("Exporter");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        prevision.setText("Prévision");
+        prevision.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                previsionMouseClicked(evt);
+            }
+        });
+        prevision.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                previsionActionPerformed(evt);
             }
         });
 
@@ -67,34 +74,59 @@ public class JMenu extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(titre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(scrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                .addComponent(prevision, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(6, 6, 6)
-                .addComponent(jButton1)
+                .addComponent(prevision)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(titre, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 518, Short.MAX_VALUE))
+                .addComponent(scrollPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 518, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void previsionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_previsionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_previsionActionPerformed
+
+    private void arbreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arbreMouseClicked
+        try{
+            DefaultMutableTreeNode node = (DefaultMutableTreeNode) arbre.getSelectionPath().getLastPathComponent();
+            String choix = node.getUserObject().toString();
+            javax.swing.JPanel jp;
+            switch(choix){
+                case "Etat des stocks" :
+                    jp = new JStockageGeneral();
+                    this.fenetre.changerPanel(jp);
+                    break;
+                case "Rechercher une chaine de production" :
+                    jp = new JChercherChaineProduction(this.fenetre);
+                    this.fenetre.changerPanel(jp);
+                    break;
+            }
+        }catch(NullPointerException e){
+            
+        }
+        
+    }//GEN-LAST:event_arbreMouseClicked
+
+    private void previsionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_previsionMouseClicked
+        new JFPrevision().setVisible(true);
+    }//GEN-LAST:event_previsionMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTree jTree1;
+    private javax.swing.JTree arbre;
+    private javax.swing.JButton prevision;
+    private javax.swing.JScrollPane scrollPanel;
+    private javax.swing.JLabel titre;
     // End of variables declaration//GEN-END:variables
 }
