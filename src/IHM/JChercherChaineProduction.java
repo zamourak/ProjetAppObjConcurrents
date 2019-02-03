@@ -37,10 +37,10 @@ public class JChercherChaineProduction extends javax.swing.JPanel {
         codeField = new javax.swing.JTextField();
         nom = new javax.swing.JLabel();
         nomField = new javax.swing.JTextField();
-        tempsField = new javax.swing.JTextField();
         Temps = new javax.swing.JLabel();
         correspondance = new javax.swing.JLabel();
         bouton_Chercher = new javax.swing.JButton();
+        tempsField = new javax.swing.JSpinner();
 
         titre.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         titre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -61,13 +61,6 @@ public class JChercherChaineProduction extends javax.swing.JPanel {
         nomField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nomFieldActionPerformed(evt);
-            }
-        });
-
-        tempsField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        tempsField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tempsFieldActionPerformed(evt);
             }
         });
 
@@ -101,11 +94,11 @@ public class JChercherChaineProduction extends javax.swing.JPanel {
                             .addComponent(correspondance, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(175, 175, 175)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(Temps, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tempsField, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(tempsField))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(nom, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -155,16 +148,12 @@ public class JChercherChaineProduction extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_nomFieldActionPerformed
 
-    private void tempsFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tempsFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tempsFieldActionPerformed
-
     private void bouton_ChercherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bouton_ChercherActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_bouton_ChercherActionPerformed
 
     private void bouton_ChercherMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bouton_ChercherMouseClicked
-        ArrayList<ChaineProduction> listechaine = Entreprise.enteprise.chercherChaineDeProduction(this.codeField.getText(), this.nomField.getText(), Integer.parseInt(this.tempsField.getText()));
+        ArrayList<ChaineProduction> listechaine = Entreprise.enteprise.chercherChaineDeProduction(this.codeField.getText(), this.nomField.getText(), (int)this.tempsField.getValue());
         if(listechaine.size()!=1){
             this.correspondance.setText(listechaine.size() + " correspondance(s)" );
         }else{
@@ -182,7 +171,7 @@ public class JChercherChaineProduction extends javax.swing.JPanel {
     private javax.swing.JLabel correspondance;
     private javax.swing.JLabel nom;
     private javax.swing.JTextField nomField;
-    private javax.swing.JTextField tempsField;
+    private javax.swing.JSpinner tempsField;
     private javax.swing.JLabel titre;
     // End of variables declaration//GEN-END:variables
 }

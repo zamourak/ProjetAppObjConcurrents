@@ -98,19 +98,24 @@ public class JMenu extends javax.swing.JPanel {
     }//GEN-LAST:event_previsionActionPerformed
 
     private void arbreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arbreMouseClicked
-        DefaultMutableTreeNode node = (DefaultMutableTreeNode) arbre.getSelectionPath().getLastPathComponent();
-        String choix = node.getUserObject().toString();
-        javax.swing.JPanel jp;
-        switch(choix){
-            case "Etat des stocks" :
-            	jp = new JStockageGeneral();
-                this.fenetre.changerPanel(jp);
-            	break;
-            case "Rechercher une chaine de production" :
-            	jp = new JChercherChaineProduction(this.fenetre);
-            	this.fenetre.changerPanel(jp);
-                break;
+        try{
+            DefaultMutableTreeNode node = (DefaultMutableTreeNode) arbre.getSelectionPath().getLastPathComponent();
+            String choix = node.getUserObject().toString();
+            javax.swing.JPanel jp;
+            switch(choix){
+                case "Etat des stocks" :
+                    jp = new JStockageGeneral();
+                    this.fenetre.changerPanel(jp);
+                    break;
+                case "Rechercher une chaine de production" :
+                    jp = new JChercherChaineProduction(this.fenetre);
+                    this.fenetre.changerPanel(jp);
+                    break;
+            }
+        }catch(NullPointerException e){
+            
         }
+        
     }//GEN-LAST:event_arbreMouseClicked
 
     private void previsionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_previsionMouseClicked

@@ -142,6 +142,11 @@ public class JPrevision extends javax.swing.JPanel {
         scroll_Tableau_Chaine_Production.setViewportView(tableau_Chaine_Production);
 
         exporter.setText("Exporter");
+        exporter.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                exporterMouseClicked(evt);
+            }
+        });
         exporter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exporterActionPerformed(evt);
@@ -201,6 +206,10 @@ public class JPrevision extends javax.swing.JPanel {
     private void exporterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exporterActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_exporterActionPerformed
+
+    private void exporterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exporterMouseClicked
+        
+    }//GEN-LAST:event_exporterMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
