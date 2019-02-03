@@ -59,6 +59,11 @@ public class JMenu extends javax.swing.JPanel {
         scrollPanel.setViewportView(arbre);
 
         prevision.setText("Prévision");
+        prevision.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                previsionMouseClicked(evt);
+            }
+        });
         prevision.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 previsionActionPerformed(evt);
@@ -107,6 +112,10 @@ public class JMenu extends javax.swing.JPanel {
                 break;
         }
     }//GEN-LAST:event_arbreMouseClicked
+
+    private void previsionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_previsionMouseClicked
+        JFPrevision fenetreprevision = new JFPrevision();
+    }//GEN-LAST:event_previsionMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -24,6 +24,7 @@ public class JPrevision extends javax.swing.JPanel {
      * Creates new form JChercherChaineProduction
      */
     public JPrevision() {
+        Entreprise.enteprise.Prevision();
         initComponents();
         this.dcp = (DefaultTableModel) this.tableau_Chaine_Production.getModel();
         this.dstock = (DefaultTableModel) this.tableau_Stock.getModel();
