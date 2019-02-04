@@ -23,7 +23,8 @@ public abstract class FichierCSV{
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}	
+		}
+		System.out.println(ligne);
 		return ligne;
 	}
 	

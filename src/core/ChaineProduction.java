@@ -230,7 +230,7 @@ public class ChaineProduction {
         /**
          * Consomme la quantitee des elements marquee dans le dictionnaire des ENTREE.
          * Produit la quantitee des element marquee dans le dictionnaire de SORTIE
-         * CrÃ©e une Production et l'ajoute Ã  la liste des productions
+         * Crée une Production et l'ajoute à la liste des productions
          */
 	public void produire(){
 		for (Element e : this.entree.keySet()) {

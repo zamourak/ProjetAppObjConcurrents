@@ -44,7 +44,7 @@ public class JChercherChaineProduction extends javax.swing.JPanel {
 
         titre.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         titre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        titre.setText("Rechercher une Chaîne de Production");
+        titre.setText("Rechercher une Chaine de Production");
 
         code.setText("Code :");
 

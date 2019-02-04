@@ -58,7 +58,7 @@ public class JMenu extends javax.swing.JPanel {
         });
         scrollPanel.setViewportView(arbre);
 
-        prevision.setText("PrÃ©vision");
+        prevision.setText("Prévision");
         prevision.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 previsionMouseClicked(evt);
