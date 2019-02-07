@@ -93,7 +93,7 @@ public class JPrevision extends javax.swing.JPanel {
 
         titre.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         titre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        titre.setText("PrÃ©vision");
+        titre.setText("Prévision");
 
         titre_Etat_Chaine_Production.setText("Etat de chaque chaine de production ");
 
@@ -105,7 +105,7 @@ public class JPrevision extends javax.swing.JPanel {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Code", "Nom", "QuantitÃ©", "UnitÃ©", "Prix Ã  l'achat", "Prix Ã  la vente"
+                "Code", "Nom", "Quantité", "Unité", "Prix à l'achat", "Prix à la vente"
             }
         ) {
             Class[] types = new Class [] {
@@ -118,7 +118,7 @@ public class JPrevision extends javax.swing.JPanel {
         });
         scroll_Tableau_Stock.setViewportView(tableau_Stock);
 
-        titre_Etat_Stock.setText("Etat GÃ©nÃ©ral des stocks aprÃ¨s production");
+        titre_Etat_Stock.setText("Etat Général des stocks après production");
 
         tableau_Chaine_Production.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

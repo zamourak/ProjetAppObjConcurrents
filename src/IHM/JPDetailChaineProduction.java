@@ -89,7 +89,7 @@ public class JPDetailChaineProduction extends javax.swing.JPanel {
 
         titre.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         titre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        titre.setText("DÃ©tail de la chaine de production");
+        titre.setText("Détail de la chaine de production");
 
         code.setText("Code : ");
 
@@ -103,7 +103,7 @@ public class JPDetailChaineProduction extends javax.swing.JPanel {
 
         temps_Chaine_Label.setText("Temps_pour_une_production");
 
-        lvlActivite.setText("niveau d'activitÃ© : ");
+        lvlActivite.setText("niveau d'activité : ");
 
         lvlActivite_Spinner.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -111,14 +111,14 @@ public class JPDetailChaineProduction extends javax.swing.JPanel {
             }
         });
 
-        titre_elem_entree.setText("Elements en entrÃ©e");
+        titre_elem_entree.setText("Elements en entré");
 
         tableau_Element_entree.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Code", "Nom", "QuantitÃ© necessaire", "QuantitÃ© disponible", "UnitÃ©"
+                "Code", "Nom", "Quantité necessaire", "Quantité disponible", "Unité"
             }
         ) {
             Class[] types = new Class [] {
@@ -138,7 +138,7 @@ public class JPDetailChaineProduction extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Code", "Nom", "QuantitÃ© necessaire", "QuantitÃ© disponible", "UnitÃ©"
+                "Code", "Nom", "Quantité necessaire", "Quantité disponible", "Unité"
             }
         ) {
             Class[] types = new Class [] {

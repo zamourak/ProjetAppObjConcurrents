@@ -41,14 +41,14 @@ public class JStockageGeneral extends javax.swing.JPanel {
 
         titre.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         titre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        titre.setText("Etat gÃ©nÃ©ral des stocks");
+        titre.setText("Etat général des stocks");
 
         Tableau_Stock.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Code", "Nom", "QuantitÃ©e", "UnitÃ©e"
+                "Code", "Nom", "Quantité", "Unité"
             }
         ) {
             Class[] types = new Class [] {
